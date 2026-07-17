@@ -1,0 +1,4 @@
+backend/venv/
+backend/model/*.pkl
+__pycache__/
+*.pycgit add .
