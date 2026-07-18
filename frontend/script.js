@@ -23,95 +23,101 @@ function beanRating(n){
 }
 
 
-function displayBooks(list) {
+function displayBooks(books){
 
     const grid = document.getElementById("resultsGrid");
     grid.innerHTML = "";
 
-    list.forEach((book, i) => {
+    if(books.length === 0){
 
-        const card = document.createElement("div");
-        card.className = "lib-card";
+        grid.innerHTML = `
+            <div class="no-results">
+                <h2>📚 No books found</h2>
+                <p>Try searching for:</p>
 
-        card.innerHTML = `
-            <h3>${book.title}</h3>
-            <p>${book.author}</p>
-            <p>⭐ ⭐ ${Number(book.rating).toFixed(1)}</p>
-            <p>${book.genres}</p>
+                <div class="suggestions">
+                    <span onclick="quickSearch('Mystery')">Mystery</span>
+                    <span onclick="quickSearch('Fantasy')">Fantasy</span>
+                    <span onclick="quickSearch('Romance')">Romance</span>
+                    <span onclick="quickSearch('Thriller')">Thriller</span>
+                </div>
+            </div>
         `;
 
-        grid.appendChild(card);
-    });
-}
-
-  function displayBooks(books){
-
-    const grid = document.getElementById("resultsGrid");
-
-    grid.innerHTML = "";
-    if (books.length === 0) {
-
-    grid.innerHTML = `
-        <div class="no-results">
-            <h2>📚 No books found</h2>
-            <p>Try searching for:</p>
-
-           <div class="suggestions">
-            <span onclick="quickSearch('Mystery')">Mystery</span>
-            <span onclick="quickSearch('Fantasy')">Fantasy</span>
-            <span onclick="quickSearch('Romance')">Romance</span>
-            <span onclick="quickSearch('Thriller')">Thriller</span>
-        </div>
-    </div>
-    `;
-
-    return;
- }
+        return;
+    }
 
     books.forEach((book,i)=>{
 
+        let genres = [];
+
+        if(book.genres){
+
+            genres = book.genres
+                .replace("[","")
+                .replace("]","")
+                .replaceAll("'","")
+                .split(",")
+                .map(g=>g.trim())
+                .slice(0,3);
+
+        }
+
         const card = document.createElement("div");
 
         card.className = "lib-card";
-
         card.style.animationDelay = `${i*0.08}s`;
 
-       card.innerHTML = `
-    <img src="${book.coverImg}" class="book-cover">
+        card.innerHTML = `
 
-    <div class="lib-top">
-        <span class="call-number">⭐ ${book.rating}</span>
-        <span class="stamp">Recommended</span>
-    </div>
+            <img src="${book.coverImg}" class="book-cover">
 
-    <h3>${book.title}</h3>
+            <div class="lib-top">
+                <span class="call-number">⭐ ${book.rating}</span>
+                <span class="stamp">Recommended</span>
+            </div>
 
-    <div class="lib-author">
-        ${book.author}
-    </div>
+            <h3>${book.title}</h3>
 
-    <p class="lib-blurb">
-        ${book.description
-    ? book.description.substring(0, 700) + "..."
-    : "No description available."}
-    </p>
-    <button class="read-btn">Read More</button>
-<div class="lib-tags">
-${
-    book.genres
-    ? book.genres
-        .replace("[","")
-        .replace("]","")
-        .replaceAll("'","")
-        .split(",")
-        .slice(0,3)
-        .map(g => `<span class="tag-pill">${g.trim()}</span>`)
-        .join("")
-    : ""
-}
-</div>
-`;
-card.onclick = () => openBook(book);
+            <div class="lib-author">
+                ${book.author}
+            </div>
+
+            <div class="lib-tags">
+                ${
+                    genres.map(g=>`<span class="tag-pill">${g}</span>`).join("")
+                }
+            </div>
+
+            <div class="why-book">
+
+                <h4>✨ Why this book?</h4>
+
+                <p>📚 <strong>Genres:</strong> ${genres.join(" • ")}</p>
+
+                <p>⭐ <strong>Rating:</strong> ${book.rating}/5</p>
+
+                <p>🔎 Recommended because it closely matches your search for
+                <strong>"${book.query}"</strong>.</p>
+
+            </div>
+
+            <p class="lib-blurb">
+                ${
+                    book.description
+                    ? book.description.substring(0,250)+"..."
+                    : "No description available."
+                }
+            </p>
+
+            <button class="read-btn">
+                Read More
+            </button>
+
+        `;
+
+        card.onclick = ()=>openBook(book);
+
         grid.appendChild(card);
 
     });
@@ -128,8 +134,6 @@ function openBook(book){
     document.getElementById("modalGenres").innerText = book.genres;
     document.getElementById("modalDesc").innerText = book.description;
 }
-  document.getElementById('results').scrollIntoView({behavior:'smooth', block:'start'});
-
 
 async function findMyBook() {
 
@@ -159,9 +163,12 @@ async function findMyBook() {
 
         const books = await response.json();
 
-        console.log("Books:", books);
+        window.books = books;
+        console.log(books);
 
         displayBooks(books);
+          document.getElementById('results').scrollIntoView({behavior:'smooth', block:'start'});
+
 
     } catch (err) {
 

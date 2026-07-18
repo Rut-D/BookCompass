@@ -15,21 +15,36 @@ def recommend_books(query, top_n=10):
 
     query_vector = tfidf.transform([query])
 
-    similarity = cosine_similarity(query_vector, tfidf_matrix)
+    similarity = cosine_similarity(query_vector, tfidf_matrix).flatten()
 
-    similar_books = similarity.argsort()[0][-top_n:][::-1]
+    similarities = list(enumerate(similarity))
 
-    recommendations = books.iloc[similar_books][[
-    "title",
-    "author",
-    "genres",
-    "rating",
-    "description",
-    "coverImg",
-]]
-    recommendations = recommendations.fillna("")
- 
-    return recommendations.to_dict(orient="records")
+    similarities = sorted(
+    similarities,
+    key=lambda x: x[1],
+    reverse=True
+)
+
+    similar_books = similarities[:10]
+
+    recommendations = []
+
+    for idx, score in similar_books:
+
+        book = books.iloc[idx]
+
+        recommendations.append({
+        "title": book["title"],
+        "author": book["author"],
+        "genres": book["genres"] if book["genres"] else "",
+        "rating": float(book["rating"]),
+        "description": book["description"] if book["description"] else "",
+        "coverImg": book["coverImg"] if book["coverImg"] else "",
+        "match": round(score * 100, 1),
+        "query": query
+        })
+
+    return recommendations
 
 @app.route("/")
 def home():
