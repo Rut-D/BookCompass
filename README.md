@@ -1,7 +1,7 @@
 # 📚 BookCompass
 
 <p align="center">
-  <img src="frontend/assets/logo.png" alt="BookCompass Logo" width="180">
+  <img src="frontend/logo.png" alt="BookCompass Logo" width="180">
 </p>
 
 <p align="center">
