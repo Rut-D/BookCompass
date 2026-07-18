@@ -539,3 +539,30 @@ cursor:pointer;
 .read-btn:hover{
     background:#8b5e3c;
 }
+
+#findBtn:disabled{
+    opacity:0.7;
+    cursor:not-allowed;
+}
+
+.no-results{
+    text-align:center;
+    padding:60px 20px;
+}
+
+.no-results h2{
+    margin-bottom:10px;
+}
+
+.suggestions{
+    margin-top:20px;
+}
+
+.suggestions span{
+    display:inline-block;
+    margin:8px;
+    padding:8px 18px;
+    border-radius:20px;
+    background:#f2e8d5;
+    cursor:pointer;
+}

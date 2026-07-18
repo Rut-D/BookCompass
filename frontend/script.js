@@ -49,6 +49,24 @@ function displayBooks(list) {
     const grid = document.getElementById("resultsGrid");
 
     grid.innerHTML = "";
+    if (books.length === 0) {
+
+    grid.innerHTML = `
+        <div class="no-results">
+            <h2>📚 No books found</h2>
+            <p>Try searching for:</p>
+
+           <div class="suggestions">
+            <span onclick="quickSearch('Mystery')">Mystery</span>
+            <span onclick="quickSearch('Fantasy')">Fantasy</span>
+            <span onclick="quickSearch('Romance')">Romance</span>
+            <span onclick="quickSearch('Thriller')">Thriller</span>
+        </div>
+    </div>
+    `;
+
+    return;
+ }
 
     books.forEach((book,i)=>{
 
@@ -114,14 +132,17 @@ function openBook(book){
 
 
 async function findMyBook() {
-const btn = document.getElementById("findBtn");
-
-    btn.disabled = true;
-    btn.innerText = "Finding...";
-    console.log("BUTTON CLICKED");
 
     const query = document.getElementById("bookInput").value.trim();
 
+    if (!query) return;
+
+    const btn = document.getElementById("findBtn");
+
+    btn.disabled = true;
+    btn.innerHTML = "🔍 Searching...";
+
+    console.log("BUTTON CLICKED");
     console.log("Query:", query);
 
     try {
@@ -139,13 +160,19 @@ const btn = document.getElementById("findBtn");
         const books = await response.json();
 
         console.log("Books:", books);
-        console.log(books[0]);
-        displayBooks(books);
-        btn.disabled = false;
-        btn.innerText = "Find My Book"; 
 
-    } catch(err) {
+        displayBooks(books);
+
+    } catch (err) {
+
         console.error(err);
+        alert("Something went wrong!");
+
+    } finally {
+
+        btn.disabled = false;
+        btn.innerHTML = "Find My Book";
+
     }
 }
 
@@ -163,3 +190,11 @@ document.querySelectorAll('.chip').forEach(chip => {
 document.querySelector(".close").onclick = () => {
     document.getElementById("bookModal").style.display = "none";
 };
+
+function quickSearch(query){
+
+    document.getElementById("bookInput").value = query;
+
+    findMyBook();
+
+}
