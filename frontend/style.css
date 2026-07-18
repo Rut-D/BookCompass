@@ -566,3 +566,21 @@ cursor:pointer;
     background:#f2e8d5;
     cursor:pointer;
 }
+
+.logo{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    text-decoration:none;
+    color:inherit;
+}
+
+.logo img{
+    width:42px;
+    height:42px;
+}
+
+.logo span{
+    font-size:1.5rem;
+    font-weight:700;
+}
