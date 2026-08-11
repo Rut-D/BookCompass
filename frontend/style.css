@@ -612,3 +612,15 @@ cursor:pointer;
     font-size:14px;
     color:#444;
 }
+
+.recommendation-label {
+    display: inline-block;
+    margin: 10px 0 4px;
+    padding: 5px 10px;
+    border-radius: 20px;
+    background: rgba(111, 78, 55, 0.08);
+    color: var(--coffee);
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+}

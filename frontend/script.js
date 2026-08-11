@@ -75,7 +75,11 @@ function displayBooks(books){
             <div class="lib-top">
                 <span class="call-number">⭐ ${book.rating}</span>
                 <span class="stamp">Recommended</span>
-            </div>
+        </div>
+
+        <div class="recommendation-label">
+            <span>Based on your search</span>
+        </div>
 
             <h3>${book.title}</h3>
 
