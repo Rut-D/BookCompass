@@ -9,6 +9,61 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700;9..144,900&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Jost:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
+
+<style id="bookcompass-hero-scene">
+.hero-art{position:relative;min-height:520px;width:100%;overflow:hidden;isolation:isolate}
+.hero-glow{position:absolute;width:430px;height:430px;right:25px;top:35px;border-radius:50%;background:radial-gradient(circle,rgba(194,157,108,.24),rgba(194,157,108,.10) 42%,transparent 72%);filter:blur(2px)}
+.hero-books{position:absolute;width:245px;height:235px;right:90px;top:100px;transform:rotate(-4deg);filter:drop-shadow(8px 12px 12px rgba(62,39,30,.15))}
+.hero-book{position:absolute;left:0;width:220px;border-radius:5px 12px 10px 4px;box-shadow:inset 8px 0 rgba(255,255,255,.08),inset -4px 0 rgba(0,0,0,.12);display:flex;align-items:center;justify-content:center;text-align:center;font-family:Georgia,serif;font-size:10px;letter-spacing:2px;line-height:1.25;color:#f8ead4}
+.hero-book::before{content:"";position:absolute;left:13px;top:8px;bottom:8px;width:2px;background:rgba(238,214,176,.38)}
+.hero-book-back{bottom:0;height:54px;background:linear-gradient(135deg,#687858,#3f4b32);transform:rotate(3deg)}
+.hero-book-middle{bottom:43px;height:59px;background:linear-gradient(135deg,#8a5c40,#583728);transform:rotate(-2deg)}
+.hero-book-front{bottom:88px;height:68px;background:linear-gradient(135deg,#3e2923,#251a17);transform:rotate(2deg)}
+.hero-book-front b{position:absolute;left:25px;right:25px;top:11px;height:1px;background:#c8ad7f}
+.hero-book-front::after{content:"";position:absolute;left:25px;right:25px;bottom:11px;height:1px;background:#c8ad7f}
+
+.hero-coffee{position:absolute;right:15px;bottom:55px;width:250px;height:205px}
+.coffee-saucer{position:absolute;left:18px;bottom:12px;width:200px;height:27px;border-radius:50%;background:linear-gradient(#c6a16c,#9b7248);box-shadow:0 10px 15px rgba(62,39,30,.15)}
+.coffee-cup{position:absolute;left:42px;bottom:31px;width:145px;height:106px;border:3px solid #5b3829;border-radius:18px 18px 44px 44px;background:linear-gradient(145deg,#e5d0ab,#c6a071);box-shadow:inset 0 -9px rgba(92,54,36,.12);z-index:2;overflow:hidden}
+.coffee-surface{position:absolute;left:5px;top:5px;width:129px;height:39px;border:4px solid #5b3829;border-radius:50%;background:radial-gradient(circle at 48% 40%,#b67b4d,#6f432d 48%,#3b241c 76%);display:flex;align-items:center;justify-content:center}
+.coffee-surface span{color:#e7c99a;font-size:25px;transform:rotate(-8deg)}
+.coffee-handle{position:absolute;right:34px;bottom:58px;width:62px;height:65px;border:11px solid #5b3829;border-left:0;border-radius:0 50% 50% 0;z-index:1}
+.steam{position:absolute;bottom:145px;width:18px;height:62px;border-left:3px solid rgba(111,78,55,.22);border-radius:50%;transform:skew(-8deg);animation:bookcompassSteam 3.2s ease-in-out infinite}
+.steam-a{left:88px}.steam-b{left:124px;animation-delay:.7s}.steam-c{left:158px;animation-delay:1.3s}
+@keyframes bookcompassSteam{0%,100%{transform:translateY(5px) skew(-8deg);opacity:.18}50%{transform:translateY(-10px) skew(4deg);opacity:.55}}
+
+.hero-lamp{position:absolute;left:25px;bottom:72px;width:115px;height:185px}
+.lamp-shade{position:absolute;left:13px;top:18px;width:88px;height:48px;background:linear-gradient(#a9793f,#69442f);clip-path:polygon(16% 0,84% 0,100% 100%,0 100%);border-radius:6px}
+.lamp-neck{position:absolute;left:54px;top:66px;width:7px;height:82px;background:#503225;border-radius:10px}
+.lamp-base{position:absolute;left:23px;bottom:7px;width:70px;height:12px;border-radius:50%;background:#503225}
+.lamp-light{position:absolute;left:22px;top:47px;width:72px;height:100px;background:radial-gradient(ellipse,rgba(244,184,96,.24),transparent 70%);filter:blur(5px)}
+
+.hero-plant{position:absolute;right:5px;top:38px;width:90px;height:115px}
+.plant-pot{position:absolute;bottom:5px;left:25px;width:42px;height:34px;background:linear-gradient(#a9793f,#70472f);clip-path:polygon(8% 0,92% 0,78% 100%,22% 100%);border-radius:3px}
+.stem{position:absolute;bottom:34px;left:46px;width:3px;height:70px;background:#647653;transform-origin:bottom}
+.stem-one{transform:rotate(-24deg)}.stem-two{transform:rotate(20deg)}
+.leaf{position:absolute;color:#748760;font-family:Georgia,serif;font-size:46px;line-height:1}
+.leaf-one{left:5px;top:15px;transform:rotate(-28deg)}.leaf-two{left:38px;top:0;transform:rotate(8deg)}.leaf-three{right:0;top:28px;transform:rotate(28deg)}
+
+.hero-mini-compass{position:absolute;left:125px;top:38px;width:76px;height:76px;border:2px solid rgba(111,78,55,.28);border-radius:50%;color:#725039;display:flex;align-items:center;justify-content:center;font-family:Jost,sans-serif;font-size:9px;letter-spacing:2px}
+.hero-mini-compass::before{content:"";position:absolute;width:54px;height:54px;border:1px solid rgba(169,121,63,.55);border-radius:50%}
+.hero-mini-compass::after{content:"✦";position:absolute;font-size:25px;color:#a9793f}
+.hero-mini-compass span:first-child{position:absolute;top:7px}.hero-mini-compass span:last-child{position:absolute;bottom:7px}
+
+.hero-candle{position:absolute;right:75px;bottom:30px;width:32px;height:55px;border-radius:5px 5px 3px 3px;background:linear-gradient(90deg,#c7a879,#ead4ad,#b68f60);box-shadow:0 7px 13px rgba(62,39,30,.14)}
+.hero-candle::before{content:"";position:absolute;left:15px;top:-7px;width:3px;height:10px;background:#4b2e22}
+.candle-flame{position:absolute;left:9px;top:-27px;width:14px;height:22px;border-radius:50% 50% 50% 0;transform:rotate(-45deg);background:#e8ad52;box-shadow:0 0 18px rgba(232,173,82,.7);animation:bookcompassFlame 1.4s ease-in-out infinite}
+@keyframes bookcompassFlame{50%{transform:rotate(-42deg) scale(1.12)}}
+
+.hero-bean{position:absolute;width:15px;height:24px;border-radius:50%;background:linear-gradient(135deg,#6f4e37,#3e2723);transform:rotate(35deg);box-shadow:2px 3px 6px rgba(62,39,30,.16)}
+.hero-bean::after{content:"";position:absolute;left:6px;top:3px;width:2px;height:18px;border-radius:50%;background:#c8ad7f}
+.bean-one{left:145px;bottom:28px}.bean-two{left:205px;bottom:48px;transform:rotate(-28deg)}.bean-three{right:225px;bottom:30px}.bean-four{right:285px;bottom:65px;transform:rotate(60deg)}
+.hero-star{position:absolute;color:#a9793f;opacity:.65}.star-one{right:285px;top:45px;font-size:18px}.star-two{right:195px;top:200px;font-size:28px;opacity:.35}.star-three{left:205px;bottom:120px;font-size:16px;opacity:.45}
+
+@media (max-width:900px){.hero-art{min-height:430px;transform:scale(.86);transform-origin:center top}}
+@media (max-width:600px){.hero-art{min-height:360px;transform:scale(.72);margin-top:-20px}}
+</style>
+
 </head>
 <body>
 
@@ -48,67 +103,53 @@
     </div>
 
     <div class="hero-art" aria-hidden="true">
-      <svg class="bean bean1" viewBox="0 0 40 60" fill="none"><ellipse cx="20" cy="30" rx="18" ry="28" fill="#6F4E37"/><path d="M20 4v52" stroke="#3E2723" stroke-width="3" stroke-linecap="round"/></svg>
-      <svg class="bean bean2" viewBox="0 0 40 60" fill="none"><ellipse cx="20" cy="30" rx="18" ry="28" fill="#C8AD7F"/><path d="M20 4v52" stroke="#6F4E37" stroke-width="3" stroke-linecap="round"/></svg>
+  <div class="hero-glow"></div>
 
-      <svg class="book-stack" viewBox="0 0 220 260" fill="none">
-        <g>
-          <rect x="0" y="30" width="46" height="220" rx="4" fill="#4B5A3E"/>
-          <rect x="8" y="50" width="30" height="2" fill="#C8AD7F"/>
-          <rect x="8" y="200" width="30" height="2" fill="#C8AD7F"/>
-          <circle cx="23" cy="120" r="8" fill="none" stroke="#C8AD7F" stroke-width="1.2"/>
-        </g>
-        <g>
-          <rect x="48" y="10" width="46" height="240" rx="4" fill="#2E2A26"/>
-          <rect x="56" y="34" width="30" height="2" fill="#A9793F"/>
-          <rect x="56" y="220" width="30" height="2" fill="#A9793F"/>
-        </g>
-        <g>
-          <rect x="96" y="24" width="46" height="226" rx="4" fill="#3E2723"/>
-          <rect x="104" y="44" width="30" height="2" fill="#C8AD7F"/>
-          <rect x="104" y="206" width="30" height="2" fill="#C8AD7F"/>
-        </g>
-        <g>
-          <rect x="144" y="2" width="46" height="248" rx="4" fill="#6F2C2C"/>
-          <rect x="152" y="26" width="30" height="2" fill="#C8AD7F"/>
-          <rect x="152" y="228" width="30" height="2" fill="#C8AD7F"/>
-        </g>
-      </svg>
+  <div class="hero-mini-compass"><span>N</span><i></i><span>S</span></div>
 
-      <svg class="lantern" viewBox="0 0 100 160" fill="none">
-        <path d="M35 8c5-10 25-10 30 0" stroke="#3E2723" stroke-width="3" fill="none" stroke-linecap="round"/>
-        <rect x="30" y="10" width="40" height="8" rx="2" fill="#3E2723"/>
-        <path d="M25 24 L50 12 L75 24 Z" fill="#3E2723"/>
-        <rect x="28" y="24" width="44" height="70" rx="4" fill="none" stroke="#3E2723" stroke-width="3"/>
-        <line x1="38" y1="24" x2="38" y2="94" stroke="#3E2723" stroke-width="2"/>
-        <line x1="50" y1="24" x2="50" y2="94" stroke="#3E2723" stroke-width="2"/>
-        <line x1="62" y1="24" x2="62" y2="94" stroke="#3E2723" stroke-width="2"/>
-        <circle class="lantern-glow" cx="50" cy="60" r="26" fill="#F4B860"/>
-        <path class="flame" d="M50 46c6 8 6 14 0 20-6-6-6-12 0-20Z" fill="#F4B860"/>
-        <rect x="24" y="94" width="52" height="10" rx="3" fill="#3E2723"/>
-        <rect x="34" y="104" width="32" height="6" rx="2" fill="#3E2723"/>
-      </svg>
-
-      <svg class="compass-deco" viewBox="0 0 100 100" fill="none">
-        <circle cx="50" cy="50" r="46" fill="#FBF1E1" stroke="#3E2723" stroke-width="2.5"/>
-        <circle cx="50" cy="50" r="36" fill="none" stroke="#A9793F" stroke-width="1"/>
-        <path d="M50 16 L58 50 L50 84 L42 50 Z" fill="#3E2723"/>
-        <path d="M16 50 L50 42 L84 50 L50 58 Z" fill="#A9793F" opacity="0.6"/>
-        <circle cx="50" cy="50" r="4" fill="#3E2723"/>
-      </svg>
-
-      <svg class="cup" viewBox="0 0 200 170" fill="none">
-        <g class="steam">
-          <path d="M76 60c-14-16 14-24 0-42" />
-          <path d="M100 60c-14-16 14-24 0-42" />
-          <path d="M124 60c-14-16 14-24 0-42" />
-        </g>
-        <path d="M40 70h110l-10 66a14 14 0 0 1-14 12H64a14 14 0 0 1-14-12Z" fill="#3E2723"/>
-        <path d="M40 70h110l-3 20H43Z" fill="#6F4E37"/>
-        <path d="M150 78c20-4 34 8 30 24s-24 20-38 14" stroke="#3E2723" stroke-width="8" fill="none" stroke-linecap="round"/>
-      </svg>
-    </div>
+  <div class="hero-books">
+    <div class="hero-book hero-book-back"><span>THE<br>ATLAS</span></div>
+    <div class="hero-book hero-book-middle"><span>STORIES<br>WE KEEP</span></div>
+    <div class="hero-book hero-book-front"><span>THE<br>LOST<br>CHAPTER</span><b></b></div>
   </div>
+
+  <div class="hero-lamp">
+    <div class="lamp-shade"></div>
+    <div class="lamp-neck"></div>
+    <div class="lamp-base"></div>
+    <div class="lamp-light"></div>
+  </div>
+
+  <div class="hero-coffee">
+    <div class="steam steam-a"></div>
+    <div class="steam steam-b"></div>
+    <div class="steam steam-c"></div>
+    <div class="coffee-saucer"></div>
+    <div class="coffee-cup"><div class="coffee-surface"><span>♡</span></div></div>
+    <div class="coffee-handle"></div>
+  </div>
+
+  <div class="hero-plant">
+    <div class="plant-pot"></div>
+    <div class="stem stem-one"></div>
+    <div class="stem stem-two"></div>
+    <span class="leaf leaf-one">◜</span>
+    <span class="leaf leaf-two">◝</span>
+    <span class="leaf leaf-three">◜</span>
+  </div>
+
+  <div class="hero-candle"><div class="candle-flame"></div></div>
+
+  <span class="hero-bean bean-one"></span>
+  <span class="hero-bean bean-two"></span>
+  <span class="hero-bean bean-three"></span>
+  <span class="hero-bean bean-four"></span>
+
+  <span class="hero-star star-one">✦</span>
+  <span class="hero-star star-two">·</span>
+  <span class="hero-star star-three">✧</span>
+</div>
+</div>
 </section>
 
 <div class="tear" aria-hidden="true">
