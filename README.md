@@ -170,7 +170,7 @@ in your browser.
 
 GitHub: https://github.com/Rut-D
 
-LinkedIn: *(Add your LinkedIn URL here)*
+LinkedIn: www.linkedin.com/in/rutuja-dombe
 
 ---
 
