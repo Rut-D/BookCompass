@@ -125,25 +125,7 @@ in your browser.
 
 ---
 
-## 📸 Screenshots
 
-### Home Page
-![BookCompass Home Page](screenshots/home.png)
-
-
----
-
-### Recommendations
-
-
-
----
-
-### Book Details
-
-
-
----
 
 ## 💻 How It Works
 
