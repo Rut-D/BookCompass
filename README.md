@@ -128,20 +128,20 @@ in your browser.
 ## 📸 Screenshots
 
 ### Home Page
+![BookCompass Home Page](screenshots/home.png)
 
-<img width="1901" height="911" alt="image" src="https://github.com/user-attachments/assets/e409f0bd-d0c7-4365-bfb3-6fb37303bb83" />
 
 ---
 
 ### Recommendations
 
-<img width="1902" height="907" alt="image" src="https://github.com/user-attachments/assets/68d8b146-8052-43ec-a176-768c8b4b7905" />
+
 
 ---
 
 ### Book Details
 
-<img width="1905" height="912" alt="image" src="https://github.com/user-attachments/assets/2bd745f4-fb19-48df-9e3c-98f17afd08ae" />
+
 
 ---
 
