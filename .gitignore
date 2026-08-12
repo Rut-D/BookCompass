@@ -1,4 +1,3 @@
 backend/venv/
-backend/model/*.pkl
-__pycache__/
-*.pycgit add .
+**__pycache__/
+*.pyc
